@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if(strs.empty()) return "";
+
+        string perfix = strs[0];
+        for(int i=1;i<strs.size();i++){
+            while(strs[i].find(perfix)!=0){   
+                perfix = perfix.substr(0,perfix.length()-1); // did not find perfix then sub perfix
+                if(perfix.empty()) return "";
+            }
+        }
+        return perfix;
+    }
+};
